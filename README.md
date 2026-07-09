@@ -217,7 +217,8 @@ Next.js projects:
 
 ```bash
 npm i -g vercel
-vercel
+vercel  :  https://interactive-saas-platform.vercel.app/
+linkedin  :  https://www.linkedin.com/posts/maryam-younas-665a102aa_teyzixcore-internship-frontenddevelopment-ugcPost-7480899487872270336-Zc6x/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEqLbK0BDKbw6sjCevQVgSkFpOLA2gh3PwU
 ```
 
 Or I can just connect my GitHub repo directly on vercel.com/new — either
