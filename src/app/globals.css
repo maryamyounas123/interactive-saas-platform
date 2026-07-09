@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme (default) */
+  --bg: 244 246 251;
+  --surface: 255 255 255;
+  --surface2: 237 240 247;
+  --edge: 15 18 28;
+  --ink: 12 15 22;
+  --ink-soft: 78 86 106;
+
+  /* Accent color - overridden live by the Theme Customizer */
+  --signal: 108 92 231;
+  --signal-light: 139 124 246;
+  --signal-dark: 84 67 201;
+}
+
+.dark {
+  /* Dark theme - the primary "control room" identity */
+  --bg: 10 13 20;
+  --surface: 18 22 31;
+  --surface2: 26 31 43;
+  --edge: 255 255 255;
+  --ink: 244 246 251;
+  --ink-soft: 154 161 184;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-ink font-body antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-signal/30 text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid #8b7cf6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-edge/20 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-signal/60;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase text-signal-light;
+  }
+
+  .card-surface {
+    @apply bg-surface border border-edge/[0.08] backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(108,92,231,0.4),0_8px_24px_-8px_rgba(108,92,231,0.6)] transition-all duration-200 hover:bg-signal-light hover:shadow-[0_0_0_1px_rgba(139,124,246,0.6),0_10px_30px_-6px_rgba(139,124,246,0.7)] active:scale-[0.97];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-edge/15 bg-edge/[0.03] px-6 py-3 text-sm font-semibold text-ink transition-all duration-200 hover:border-edge/30 hover:bg-edge/[0.07] active:scale-[0.97];
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
