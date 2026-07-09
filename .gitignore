@@ -25,3 +25,4 @@ yarn-error.log*
 # typescript (unused in this project but ignored just in case)
 *.tsbuildinfo
 next-env.d.ts
+screenshots/ 
